@@ -9,12 +9,14 @@
 <body>
  <div>
   <h1>My Goals</h1>
-  <ul>
-    <li *ngFor = 'let goal of goals'>
-        {{goal.name}}
-        <app-goal-detail-component [goal]='goal'></app-goal-detail-component>
-    </li>
-  </ul>
+  <ol>
+    <div *ngFor = 'let goal of goals; let i = index'>
+        <li>{{goal.name}}</li>
+        <button (click)='toggleDetails(i)'>Toggle Details</button>
+        <app-goal-detail-component *ngIf="goal.showDescription" [goal]='goal'
+        (isComplete)='completeGoal($event, i)'></app-goal-detail-component>
+    </div>
+  </ol>
   <p *ngIf="goals.length>5">Your goals are too many</p>
   
 </div> 
