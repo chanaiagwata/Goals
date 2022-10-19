@@ -1,11 +1,11 @@
-<div class="container mt-5">
+<div class="container mt-5 pb-3 pt-3">
   <h1>My Goals</h1>
   <hr>
   <div class="row">
     <div class="col-md-6">
           <div *ngFor = 'let goal of goals; let i = index'>
             <hr>
-            <div>
+            <div class="goals">
               <h5 appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h5>
               <button (click)='toggleDetails(i)' class="btn btn-primary">View Details</button>
             </div>
